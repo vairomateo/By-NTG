@@ -915,6 +915,103 @@ footer .footer-nav-link:hover {
     grid-template-columns: 1fr 1fr;
   }
 }
+.custom-calendar {
+  background: var(--gris-med);
+  border: 1px solid var(--gris-brd);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.calendar-month-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  color: var(--blanco);
+  text-transform: uppercase;
+}
+
+.btn-cal-nav {
+  background: transparent;
+  border: 1px solid var(--gris-brd);
+  color: var(--acento);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-cal-nav:hover {
+  background: var(--acento);
+  color: var(--negro);
+  border-color: var(--acento);
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--acento);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  opacity: 0.8;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.4rem;
+}
+
+.day-chip {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  color: var(--blanco);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.day-chip:hover:not(.vacio):not(.pasado) {
+  border-color: var(--acento);
+  color: var(--acento);
+}
+.day-chip.seleccionado {
+  background: var(--acento) !important;
+  color: var(--negro) !important;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(232, 197, 71, 0.2);
+}
+.day-chip.pasado {
+  color: #333333;
+  cursor: not-allowed;
+  background: transparent;
+}
+.day-chip.vacio {
+  background: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
 .hero-dudas {
   padding: 120px 0 80px;
   text-align: center;

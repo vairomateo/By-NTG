@@ -77,6 +77,7 @@
         </div>
       </div>
 
+      <!-- ── PASO 1: SERVICIO ── -->
       <div class="form-seccion activa" id="paso1">
         <p class="form-seccion-titulo">
           <i class="bi bi-wrench-adjustable"></i>¿Qué servicio necesitás?
@@ -92,6 +93,7 @@
         </div>
       </div>
 
+      <!-- ── PASO 2: TUS DATOS ── -->
       <div class="form-seccion" id="paso2">
         <p class="form-seccion-titulo">
           <i class="bi bi-person-fill"></i>Tus datos
@@ -142,7 +144,7 @@
           </div>
           <div class="col-sm-3">
             <label class="form-label-byntg" for="anioVehiculo">Año</label>
-            <input type="number" id="anioVehiculo" class="form-control-byntg" placeholder="2025" min="1960" max="2027">
+            <input type="number" id="anioVehiculo" class="form-control-byntg" placeholder="2026" min="1960" max="2027">
             <p class="campo-error-msg" id="error_anioVehiculo">Este campo es obligatorio.</p>
           </div>
         </div>
@@ -157,18 +159,36 @@
         </div>
       </div>
 
+      <!-- ── PASO 3: AGENDA (NUEVO CALENDARIO INTEGRADO) ── -->
       <div class="form-seccion" id="paso3">
         <p class="form-seccion-titulo">
           <i class="bi bi-calendar3"></i>Elegí el día y horario
         </p>
         
-        <div class="row g-3">
-          <div class="col-md-6">
-            <label class="form-label-byntg" for="fechaTurno">Seleccioná el día</label>
-            <input type="date" id="fechaTurno" class="form-control-byntg">
+        <div class="row g-4">
+          <!-- Columna del Calendario Customizado -->
+          <div class="col-md-7">
+            <label class="form-label-byntg">Seleccioná el día</label>
+            
+            <div class="custom-calendar">
+              <div class="calendar-header">
+                <button type="button" id="prevMonth" class="btn-cal-nav"><i class="bi bi-chevron-left"></i></button>
+                <span id="calendarMonthYear" class="calendar-month-title"></span>
+                <button type="button" id="nextMonth" class="btn-cal-nav"><i class="bi bi-chevron-right"></i></button>
+              </div>
+              <div class="calendar-weekdays">
+                <div>Do</div><div>Lu</div><div>Ma</div><div>Mi</div><div>Ju</div><div>Vi</div><div>Sá</div>
+              </div>
+              <div class="calendar-days" id="calendarDays">
+                <!-- Se dibuja dinámicamente desde el JS -->
+              </div>
+            </div>
+            
             <p class="campo-error-msg" id="error_fecha">Por favor, elegí un día para tu turno.</p>
           </div>
-          <div class="col-md-6">
+
+          <!-- Columna de Horarios Disponibles -->
+          <div class="col-md-5">
             <label class="form-label-byntg">Horarios disponibles</label>
             <div class="horas-grid" id="horasGrid">
               <p class="text-muted small ps-1" style="color: var(--texto-suave) !important;">Seleccioná un día primero para ver horarios...</p>
@@ -187,6 +207,7 @@
         </div>
       </div>
 
+      <!-- ── PASO 4: CONFIRMAR ── -->
       <div class="form-seccion" id="paso4">
         <p class="form-seccion-titulo">
           <i class="bi bi-check-circle-fill"></i>Confirmá tu solicitud
@@ -250,7 +271,10 @@
         </div>
       </div>
 
-    </div><div class="turno-success turno-form-wrap" id="turnoSuccess">
+    </div>
+    
+    <!-- PANTALLA DE ÉXITO -->
+    <div class="turno-success turno-form-wrap" id="turnoSuccess">
       <div class="success-icon"><i class="bi bi-check-circle-fill"></i></div>
       <h3>¡SOLICITUD ENVIADA!</h3>
       <p>Te redirigimos a WhatsApp con todos los datos.<br>En menos de 24 hs te confirmamos turno.</p>
@@ -268,7 +292,7 @@
       <div class="col-md-4">
         <img src="./imagenes/logo-byntg.png" alt="By NTG" style="height:48px; margin-bottom:1rem;">
         <p class="footer-copy" style="font-size:.88rem;">Estética automotriz profesional en Buenos Aires.</p>
-        <p class="footer-copy mt-1">© 2025 By NTG</p>
+        <p class="footer-copy mt-1">© 2026 By NTG</p>
       </div>
       <div class="col-md-4">
         <p class="footer-titulo">NAVEGACIÓN</p>

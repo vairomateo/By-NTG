@@ -1,45 +1,45 @@
 // ==========================================
-//  BY NTG — turnos.js (Modificado)
+//   BY NTG — turnos.js (Con Calendario Custom)
 // ==========================================
 
 const SERVICIOS = [
-  { nombre: "Polarizado Estándar",         cat: "Polarizado" },
-  { nombre: "Polarizado Carbono Premium",    cat: "Polarizado" },
-  { nombre: "Polarizado Cerámico",           cat: "Polarizado" },
-  { nombre: "Polarizado Parabrisas",             cat: "Polarizado" },
-  { nombre: "Pulido de Ópticas",                 cat: "Estética"   },
-  { nombre: "Lavado de Tapizado",                cat: "Estética"   },
-  { nombre: "Restauración de Plásticos",         cat: "Estética"   },
-  { nombre: "Detailing Exterior",                cat: "Detailing"  },
-  { nombre: "Detailing Completo",                cat: "Detailing"  },
-  { nombre: "Nano Cerámica",                     cat: "Detailing"  },
-  { nombre: "Lavado Común",                      cat: "Lavado"     },
-  { nombre: "Lavado Común SUV / Camioneta",      cat: "Lavado"     },
-  { nombre: "Lavado Premium",                    cat: "Lavado"     },
-  { nombre: "Lavado Premium SUV / Camioneta",    cat: "Lavado"     },
-  { nombre: "Lavado de Moto",                    cat: "Lavado"     },
-  { nombre: "Combo Polarizado + Lavado Premium", cat: "Combo"      },
-  { nombre: "Combo Detailing + Cerámica",        cat: "Combo"      },
-  { nombre: "Combo Estética Completa",           cat: "Combo"      },
+    { nombre: "Polarizado Estándar",         cat: "Polarizado" },
+    { nombre: "Polarizado Carbono Premium",    cat: "Polarizado" },
+    { nombre: "Polarizado Cerámico",           cat: "Polarizado" },
+    { nombre: "Polarizado Parabrisas",             cat: "Polarizado" },
+    { nombre: "Pulido de Ópticas",                 cat: "Estética"   },
+    { nombre: "Lavado de Tapizado",                cat: "Estética"   },
+    { nombre: "Restauración de Plásticos",         cat: "Estética"   },
+    { nombre: "Detailing Exterior",                cat: "Detailing"  },
+    { nombre: "Detailing Completo",                cat: "Detailing"  },
+    { nombre: "Nano Cerámica",                     cat: "Detailing"  },
+    { nombre: "Lavado Común",                      cat: "Lavado"     },
+    { nombre: "Lavado Común SUV / Camioneta",      cat: "Lavado"     },
+    { nombre: "Lavado Premium",                    cat: "Lavado"     },
+    { nombre: "Lavado Premium SUV / Camioneta",    cat: "Lavado"     },
+    { nombre: "Lavado de Moto",                    cat: "Lavado"     },
+    { nombre: "Combo Polarizado + Lavado Premium", cat: "Combo"      },
+    { nombre: "Combo Detailing + Cerámica",        cat: "Combo"      },
+    { nombre: "Combo Estética Completa",           cat: "Combo"      },
 ];
 
 // 📅 CONTROL DE DIAS Y HORARIOS OCUPADOS (Agregado manual por los dueños)
 // Formato: "AAAA-MM-DD": ["HH:MM", "HH:MM"]
 const HORARIOS_OCUPADOS = {
-  "2026-07-01": ["11:00", "14:00"], 
-  "2026-07-02": ["09:00", "16:00"],
+    "2026-07-10": ["14:00", "16:00"],
+    "2026-07-12": ["18:00", "20:00"],
 };
 
 // Horarios estándar del taller
-const HORARIOS_BASE = ["09:00", "11:00", "14:00", "16:00"];
+const HORARIOS_BASE = ["14:00", "16:00", "18:00", "20:00"];
 
 // ── Estado del formulario (Actualizado a 4 pasos) ──
 const estado = {
-  pasoActual: 1,
-  totalPasos: 4,
-  servicioSeleccionado: null,
-  fechaSeleccionada: null,
-  horaSeleccionada: null
+    pasoActual: 1,
+    totalPasos: 4,
+    servicioSeleccionado: null,
+    fechaSeleccionada: null,
+    horaSeleccionada: null
 };
 
 // ── Elementos ─────────────────────────────
@@ -51,14 +51,15 @@ const successBox  = document.getElementById("turnoSuccess");
 const inputFecha  = document.getElementById("fechaTurno");
 const horasGrid   = document.getElementById("horasGrid");
 
-// Bloquear fechas pasadas en el calendario nativo
+// Bloquear fechas pasadas en el calendario nativo (si es que aún existe en el HTML)
 if (inputFecha) {
   inputFecha.min = new Date().toISOString().split("T")[0];
 }
 
-// ── Render chips de servicios ──────────────
+// ── Render chips de servicios (INTACTO, SÚPER CLEAN) ──────────────
 function renderChips() {
   const grid = document.getElementById("serviciosGrid");
+  if (!grid) return;
   grid.innerHTML = "";
 
   SERVICIOS.forEach(s => {
@@ -105,7 +106,7 @@ function renderHorarios(fecha) {
   });
 }
 
-// Listener para cuando eligen un día del calendario
+// Listener para el input nativo (como respaldo si conviven ambos)
 if (inputFecha) {
   inputFecha.addEventListener("change", (e) => {
     estado.fechaSeleccionada = e.target.value;
@@ -113,6 +114,99 @@ if (inputFecha) {
     renderHorarios(e.target.value);
   });
 }
+
+
+// ── MOTOR DE CALENDARIO CUSTOM INTEGRADO ──
+let fechaActualCal = new Date(); // Mes en pantalla
+
+function renderCalendario() {
+  const contenedorDias = document.getElementById("calendarDays");
+  const tituloMesAnio    = document.getElementById("calendarMonthYear");
+  
+  if (!contenedorDias || !tituloMesAnio) return;
+  
+  contenedorDias.innerHTML = "";
+  
+  const anio = fechaActualCal.getFullYear();
+  const mes  = fechaActualCal.getMonth();
+  
+  // Nombres de meses para el título
+  const meses = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
+  tituloMesAnio.textContent = `${meses[mes]} ${anio}`;
+  
+  // Primer día del mes y total de días
+  const primerDiaIndex = new Date(anio, mes, 1).getDay();
+  const totalDias      = new Date(anio, mes + 1, 0).getDate();
+  
+  const hoy = new Date();
+  hoy.setHours(0,0,0,0);
+  
+  // Crear espacios vacíos para los días del mes anterior
+  for (let i = 0; i < primerDiaIndex; i++) {
+    const espacio = document.createElement("div");
+    espacio.className = "day-chip vacio";
+    contenedorDias.appendChild(espacio);
+  }
+  
+  // Renderizar los números del mes
+  for (let dia = 1; dia <= totalDias; dia++) {
+    const chipDay = document.createElement("div");
+    chipDay.className = "day-chip";
+    chipDay.textContent = dia;
+    
+    // Formato de fecha de este chip: AAAA-MM-DD
+    const mesFormateado = String(mes + 1).padStart(2, '0');
+    const diaFormateado = String(dia).padStart(2, '0');
+    const stringFechaChip = `${anio}-${mesFormateado}-${diaFormateado}`;
+    
+    const fechaChipObj = new Date(anio, mes, dia);
+    
+    // Controlar si el día ya pasó
+    if (fechaChipObj < hoy) {
+      chipDay.classList.add("pasado");
+    } else {
+      // Si es el día que el usuario ya seleccionó previamente
+      if (estado.fechaSeleccionada === stringFechaChip) {
+        chipDay.classList.add("seleccionado");
+      }
+      
+      chipDay.addEventListener("click", () => {
+        document.querySelectorAll(".day-chip").forEach(d => d.classList.remove("seleccionado"));
+        chipDay.classList.add("seleccionado");
+        
+        estado.fechaSeleccionada = stringFechaChip;
+        const errFecha = document.getElementById("error_fecha");
+        if (errFecha) errFecha.classList.remove("visible");
+        
+        // Ejecuta el renderizado de horas dinámico
+        renderHorarios(stringFechaChip);
+      });
+    }
+    
+    contenedorDias.appendChild(chipDay);
+  }
+}
+
+// Triggers para las flechas de navegación del mes
+const prevMonthBtn = document.getElementById("prevMonth");
+if (prevMonthBtn) {
+  prevMonthBtn.addEventListener("click", () => {
+    fechaActualCal.setMonth(fechaActualCal.getMonth() - 1);
+    renderCalendario();
+  });
+}
+
+const nextMonthBtn = document.getElementById("nextMonth");
+if (nextMonthBtn) {
+  nextMonthBtn.addEventListener("click", () => {
+    fechaActualCal.setMonth(fechaActualCal.getMonth() + 1);
+    renderCalendario();
+  });
+}
+
 
 // ── Autocompletar desde URL (?servicio=...) ─
 function autocompletarServicio() {
@@ -146,7 +240,8 @@ function actualizarSteps() {
 // ── Mostrar paso ──────────────────────────
 function mostrarPaso(num) {
   pasos.forEach(p => p.classList.remove("activa"));
-  document.getElementById(`paso${num}`).classList.add("activa");
+  const pasoTarget = document.getElementById(`paso${num}`);
+  if (pasoTarget) pasoTarget.classList.add("activa");
   estado.pasoActual = num;
   actualizarSteps();
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -167,6 +262,7 @@ function validarPaso2() {
 
   campos.forEach(id => {
     const input = document.getElementById(id);
+    if (!input) return;
     const error = document.getElementById(`error_${id}`);
     const vacio = !input.value.trim();
 
@@ -178,7 +274,7 @@ function validarPaso2() {
   // Validar mail
   const mail = document.getElementById("mail");
   const errorMail = document.getElementById("error_mail");
-  if (mail.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value)) {
+  if (mail && mail.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value)) {
     mail.classList.add("error");
     if (errorMail) { errorMail.textContent = "Ingresá un mail válido."; errorMail.classList.add("visible"); }
     valido = false;
@@ -187,11 +283,13 @@ function validarPaso2() {
   // Validar año
   const anio = document.getElementById("anioVehiculo");
   const errorAnio = document.getElementById("error_anioVehiculo");
-  const anioVal = parseInt(anio.value);
-  if (anio.value.trim() && (anioVal < 1960 || anioVal > new Date().getFullYear() + 1)) {
-    anio.classList.add("error");
-    if (errorAnio) { errorAnio.textContent = "Ingresá un año válido."; errorAnio.classList.add("visible"); }
-    valido = false;
+  if (anio && anio.value.trim()) {
+    const anioVal = parseInt(anio.value);
+    if (anioVal < 1960 || anioVal > new Date().getFullYear() + 1) {
+      anio.classList.add("error");
+      if (errorAnio) { errorAnio.textContent = "Ingresá un año válido."; errorAnio.classList.add("visible"); }
+      valido = false;
+    }
   }
 
   return valido;
@@ -227,9 +325,10 @@ function cargarResumen() {
   document.getElementById("resZona").textContent      = document.getElementById("zona").value;
   document.getElementById("resDireccion").textContent = document.getElementById("direccion").value;
   
-  // Parseo visual simple de la fecha (DD/MM/AAAA)
-  const [anio, mes, dia] = estado.fechaSeleccionada.split("-");
-  document.getElementById("resFecha").textContent     = `${dia}/${mes}/${anio}`;
+  if (estado.fechaSeleccionada) {
+    const [anio, mes, dia] = estado.fechaSeleccionada.split("-");
+    document.getElementById("resFecha").textContent     = `${dia}/${mes}/${anio}`;
+  }
   document.getElementById("resHora").textContent      = `${estado.horaSeleccionada} hs`;
 
   document.getElementById("resVehiculo").textContent  =
@@ -266,13 +365,12 @@ function enviarWhatsApp() {
 🚗 *Vehículo*
 • ${marca} ${modelo} (${anio})`;
 
-  const numero = "1135706071"; // ← Reemplazar con el número de WhatsApp real del local
+  const numero = "1135706071"; 
   const url    = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
   window.open(url, "_blank");
 
-  // Mostrar caja de éxito final
-  formWrap.style.display = "none";
-  successBox.classList.add("visible");
+  if (formWrap) formWrap.style.display = "none";
+  if (successBox) successBox.classList.add("visible");
 }
 
 // ── Botones siguiente / anterior ───────────
@@ -302,5 +400,6 @@ document.getElementById("btnEnviar").addEventListener("click", enviarWhatsApp);
 
 // ── Init ──────────────────────────────────
 renderChips();
+renderCalendario(); // ← Integrado con éxito acá adentro
 actualizarSteps();
 autocompletarServicio();
