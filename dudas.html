@@ -1,224 +1,484 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link rel="stylesheet" href="./css/style.css" />
-<link rel="icon" href="imagenes/Logo.png" type="image/png">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<meta name="description" content="Querandí Mates — productos de calidad para disfrutar el ritual del mate. Conocé nuestra historia y encontrá tu compañero ideal.">
-<meta name="keywords" content="mate, bombilla, yerba, tienda, artesanal, Argentina">
-<title>Querandí Mates | Dudas</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <link rel="icon" href="./imagenes/logo-byntg.png" type="image/png">
+  <meta name="description" content="By NTG — Dudas frecuentes sobre cuidado y estética automotriz.">
+  <title>By NTG | Dudas</title>
 </head>
 <body>
-    <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0">
-        <div class="container-fluid">
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <a class="navbar-brand mx-auto order-0 order-lg-0" href="index.html">
-                <img src="imagenes/Logo.png" alt="Logo Querandi Mates" class="logo-nav">
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar navbar-expand-lg py-2 sticky-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="index.html">
+        <img src="./imagenes/logo-byntg.png" alt="By NTG">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Quiénes somos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="dudas.html">Dudas</a></li>
+          <li class="nav-item mt-2 mt-lg-0">
+            <a class="btn-turno-nav nav-link" href="turnos.html">
+              <i class="bi bi-calendar-check me-1"></i>Sacar turno
             </a>
-
-            <div class="collapse navbar-collapse justify-content-center order-1" id="navbarSupportedContent">
-                
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="nosotros.html">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dudas.html">Dudas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="grabados.html">Grabados</a>
-                    </li>
-                </ul>
-                
-            </div>
-            
-            <div class="d-flex w-100 d-lg-none"></div>
-
-        </div>
-    </nav>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
 
-    <!-- ❓ SECCIÓN PREGUNTAS FRECUENTES (Actualizada con .faq-section) -->
-    <main class="faq-section container my-5">
-    <h1 class="text-center mb-2 display-5 fw-bold">Preguntas Frecuentes</h1>
-    
-    <div class="d-flex justify-content-center mb-5">
-        <hr class="w-25 border-querandi border-3 opacity-100">
+<!-- ===== HERO ===== -->
+<section class="hero-dudas">
+  <div class="container position-relative">
+    <div class="hero-acento-line"></div>
+    <h1>DUDAS <span>FRECUENTES</span></h1>
+    <p>Todo lo que necesitás saber para cuidar tu vehículo y entender nuestros servicios.</p>
+  </div>
+</section>
+
+<!-- ===== CONTENIDO FAQ ===== -->
+<section class="py-4 pb-5">
+  <div class="container" style="max-width: 820px;">
+
+    <!-- Buscador -->
+    <div class="mb-4">
+      <input class="faq-search" type="text" id="buscadorFaq" placeholder="Buscar una duda...">
     </div>
-    
-    <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
-            <h2 class="h4 mb-4 text-center text-muted">Resuelve tus dudas rápidamente</h2>
-            
-            <div class="accordion" id="faqAccordion">
-                
-                <!-- Pregunta 1 -->
-                <div class="accordion-item shadow-sm mb-3">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            <span class="faq-icon-wrapper"><i class="bi bi-patch-question-fill"></i></span> ¿Cómo curar el mate?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p><strong>Cómo curar un mate de calabaza : </strong>Antes del primer uso, llenalo con yerba usada y agua tibia. Dejalo reposar 24 horas, retirás la yerba, raspás suavemente el interior y enjuagalo. Luego, dejalo secar boca arriba en un lugar ventilado. ¡Ya está listo para disfrutar!</p>
-                            <p class="mb-0"><strong>Cómo curar un mate de algarrobo : </strong>Antes del primer uso, aplicá una fina capa de aceite vegetal en el interior y dejalo actuar unas horas. Retirá el excedente y listo. Después de cada uso, enjuagalo, secá el exceso de agua y dejalo ventilar para conservar la madera en óptimas condiciones.</p>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Pregunta 2 -->
-                <div class="accordion-item shadow-sm mb-3">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <span class="faq-icon-wrapper"><i class="bi bi-bag-fill"></i></span> ¿Qué tipo de yerba recomiendan?
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <dl class="row mb-0">
-                                <dt class="col-sm-3 fw-bold">Canarias (sin palo)</dt>
-                                <dd class="col-sm-9 text-muted">Uruguaya, intensa y amarga, ideal para quienes buscan un sabor fuerte y duradero. No tiene palo, lo que la hace más concentrada.</dd>
-                                
-                                <dt class="col-sm-3 fw-bold">Amanda Suave</dt>
-                                <dd class="col-sm-9 text-muted">Argentina, con un sabor delicado y equilibrado, perfecta para quienes recién empiezan o prefieren algo más liviano.</dd>
-                                
-                                <dt class="col-sm-3 fw-bold">La Merced Barbacuá</dt>
-                                <dd class="col-sm-9 text-muted mb-0">Sabor neutro y ahumado, ni muy fuerte ni muy suave, excelente para compartir en rondas largas sin saturar el paladar.</dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pregunta 3 -->
-                <div class="accordion-item shadow-sm mb-3">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <span class="faq-icon-wrapper"><i class="bi bi-truck"></i></span> ¿Hacen envíos?
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p>Sí, realizamos envíos a todo el país a través de Correo Argentino, asegurando cobertura nacional y seguimiento del paquete. También contamos con opciones de mensajería privada según tu ubicación, para mayor comodidad. Los tiempos de entrega pueden variar, pero siempre te mantenemos informado. Tu pedido viaja seguro y llega a donde estés.</p>
-                            <a href="https://wa.me/5491135706071" class="btn btn-sm btn-outline-gold mt-2">Consultar costos de envío exactos</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Pregunta 4 -->
-                <div class="accordion-item shadow-sm mb-3">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                            <span class="faq-icon-wrapper"><i class="bi bi-credit-card"></i></span> ¿Qué métodos de pago aceptan?
-                        </button>
-                    </h2>
-                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p>Aceptamos Mercado Pago, tarjetas de crédito/débito y transferencias bancarias.</p>
-                            <div class="pagos__icons d-flex gap-3 align-items-center mt-3">
-                                <img src="./imagenes/visa.png" alt="Visa" style="max-height: 25px;" />
-                                <img src="./imagenes/mastercard.png" alt="Mastercard" style="max-height: 25px;" />
-                                <img src="./imagenes/mercadopago.png" alt="Mercado Pago" style="max-height: 35px;" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Pregunta 5 -->
-                <div class="accordion-item shadow-sm mb-3">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            <span class="faq-icon-wrapper"><i class="bi bi-droplet-half"></i></span> ¿Cómo limpiar y mantener el mate?
-                        </button>
-                    </h2>
-                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <p class="mb-0">Enjuagalo con agua caliente sin usar detergente. Para mates de calabaza, secá bien el interior después de cada uso y guardalo boca arriba para evitar hongos.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+    <!-- Filtros por categoría -->
+    <div class="d-flex gap-2 mb-5 cats-scroll flex-wrap" id="catsFaq">
+      <button class="cat-btn activo" data-cat="todas">Todas</button>
+      <button class="cat-btn" data-cat="ceramica">Cerámica</button>
+      <button class="cat-btn" data-cat="polarizado">Polarizado</button>
+      <button class="cat-btn" data-cat="lavado">Lavado</button>
+      <button class="cat-btn" data-cat="detailing">Detailing</button>
+      <button class="cat-btn" data-cat="general">General</button>
     </div>
-</main>
 
-<footer class="bg-dark py-3">
-    <div class="container">
-        <div class="row">
-            
-            <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
-                <img src="./imagenes/Logo.png" alt="Logo Querandí Mates" class="img-fluid mb-2" style="max-width: 80px;">
-                <p class="text-light small">
-                    Expertos en la tradición del mate. Ofrecemos calidad y accesorios para un ritual perfecto.
-                </p>
-                <p class="mb-0 fw-bold text-querandi">© 2025 Querandí Mates</p>
+    <!-- ── GRUPO: CERÁMICA ── -->
+    <div class="faq-grupo" data-cat="ceramica">
+      <p class="faq-grupo-titulo"><i class="bi bi-shield-fill-check"></i>Cerámica & Lustrados</p>
+      <div class="accordion" id="accCeramica">
+
+        <div class="accordion-item" data-pregunta="¿Qué es el recubrimiento cerámico y para qué sirve?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c1">
+              ¿Qué es el recubrimiento cerámico y para qué sirve?
+            </button>
+          </h2>
+          <div id="c1" class="accordion-collapse collapse" data-bs-parent="#accCeramica">
+            <div class="accordion-body">
+              El recubrimiento cerámico es una capa líquida de sílice (SiO2) que se aplica sobre la pintura y al curar forma un escudo duro y transparente. Protege contra rayones leves, lluvia ácida, aves, sol y suciedad. Además hace que el agua resbale sola (<strong>efecto hidrofóbico</strong>) y le da una profundidad de brillo imposible de lograr con cera común.
             </div>
-            
-            <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
-                <h5 class="fw-bold mb-3 text-querandi">Explorar</h5>
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="index.html" class="footer-nav-link">Inicio</a></li>
-                    <li>
-                        <a href="nosotros.html" class="footer-nav-link">Nosotros</a></li>
-                    <li>
-                        <a href="dudas.html" class="footer-nav-link">Dudas</a></li>
-                    <li>
-                        <a class="footer-nav-link" aria-current="page" href="grabados.html">Grabados</a>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="col-md-4 text-center text-md-start">
-                <h5 class="fw-bold mb-3 text-querandi">Contacto</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2">
-                        <a href="https://wa.me/5491135706071" class="footer-nav-link" target="_blank">
-                            <i class="bi bi-whatsapp me-2"></i> 11-3570-6071
-                        </a>
-                    </li>
-                    <li class="mb-2">
-                        <a href="https://www.instagram.com/querandi.mates/" class="footer-nav-link" target="_blank">
-                            <i class="bi bi-instagram me-2"></i> @querandi.mates
-                        </a>
-                    </li>
-                    <li class="mb-2">
-                        <a href="" class="footer-nav-link">
-                            <i class="bi bi-geo-alt-fill me-2"></i> Buenos Aires, Argentina
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            
+          </div>
         </div>
-        
-        <div class="row border-top pt-3 mt-4 border-secondary">
-            <div class="col-12 text-center">
-                <p class="text-light small mb-0">
-                    Diseño y Desarrollo por Mateo Vairo. Todos los derechos reservados.
-                </p>
+
+        <div class="accordion-item" data-pregunta="¿Cuánto dura un recubrimiento cerámico?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2">
+              ¿Cuánto dura un recubrimiento cerámico?
+            </button>
+          </h2>
+          <div id="c2" class="accordion-collapse collapse" data-bs-parent="#accCeramica">
+            <div class="accordion-body">
+              Depende del producto y el cuidado. Los que aplicamos nosotros tienen una duración de <strong>2 a 5 años</strong> en condiciones normales. Para maximizar la vida útil: lavá el auto cada 2 semanas, evitá lavaderos automáticos de cepillos y no uses detergentes agresivos.
             </div>
+          </div>
         </div>
+
+        <div class="accordion-item" data-pregunta="¿Puedo aplicar cera encima de la cerámica?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c3">
+              ¿Puedo aplicar cera encima de la cerámica?
+            </button>
+          </h2>
+          <div id="c3" class="accordion-collapse collapse" data-bs-parent="#accCeramica">
+            <div class="accordion-body">
+              No tiene sentido y puede ser contraproducente. La cerámica ya supera en todo a cualquier cera. Si querés darle mantenimiento, usá un <strong>spray SiO2 de mantenimiento</strong> cada 3 o 4 meses — eso sí potencia la cerámica sin dañarla.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Qué es un lustrado acrílico y cuándo conviene?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c4">
+              ¿Qué es un lustrado acrílico y cuándo conviene?
+            </button>
+          </h2>
+          <div id="c4" class="accordion-collapse collapse" data-bs-parent="#accCeramica">
+            <div class="accordion-body">
+              El lustrado acrílico es una protección más económica que la cerámica, ideal para autos que no necesitan el nivel premium. Dura entre <strong>3 y 6 meses</strong> y da buen brillo. Conviene si querés mantener el auto prolijo sin hacer una inversión grande, o como paso previo antes de una cerámica.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Cuánto tiempo tengo que esperar para mojar el auto después de la cerámica?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c5">
+              ¿Cuánto tiempo tengo que esperar para mojar el auto después de la cerámica?
+            </button>
+          </h2>
+          <div id="c5" class="accordion-collapse collapse" data-bs-parent="#accCeramica">
+            <div class="accordion-body">
+              Lo ideal es esperar <strong>48 a 72 horas</strong> antes del primer lavado y evitar lluvia fuerte durante ese período. En esas horas el recubrimiento termina de curar y alcanza su dureza máxima. Si llueve un poco no pasa nada, pero evitá lavarlo activamente.
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+
+    <!-- ── GRUPO: POLARIZADO ── -->
+    <div class="faq-grupo" data-cat="polarizado">
+      <p class="faq-grupo-titulo"><i class="bi bi-window"></i>Polarizado de Vidrios</p>
+      <div class="accordion" id="accPolarizado">
+
+        <div class="accordion-item" data-pregunta="¿El polarizado es legal en Argentina?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p1">
+              ¿El polarizado es legal en Argentina?
+            </button>
+          </h2>
+          <div id="p1" class="accordion-collapse collapse" data-bs-parent="#accPolarizado">
+            <div class="accordion-body">
+              Sí, con condiciones. La ley permite polarizado en las ventanas laterales traseras y el vidrio trasero sin restricción de porcentaje. Para las ventanas delanteras y el parabrisas hay regulaciones según la provincia. Te asesoramos según tu vehículo y zona para que quede todo dentro de la norma.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Cuál es la diferencia entre el film estándar, carbono y cerámico?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p2">
+              ¿Cuál es la diferencia entre film estándar, carbono y cerámico?
+            </button>
+          </h2>
+          <div id="p2" class="accordion-collapse collapse" data-bs-parent="#accPolarizado">
+            <div class="accordion-body">
+              <ul>
+                <li><strong>Estándar (teñido):</strong> el más económico, buena oscuridad visual pero menor rechazo de calor.</li>
+                <li><strong>Carbono:</strong> mejor rechazo térmico, sin interferencia de señales (GPS, celular, radio), acabado más mate y premium.</li>
+                <li><strong>Cerámico:</strong> lo mejor del mercado. Máximo rechazo de calor y UV, totalmente transparente en tonos claros, cero interferencias. Garantía extendida.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Cuánto tiempo dura el polarizado?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p3">
+              ¿Cuánto tiempo dura el polarizado?
+            </button>
+          </h2>
+          <div id="p3" class="accordion-collapse collapse" data-bs-parent="#accPolarizado">
+            <div class="accordion-body">
+              Un film bien aplicado dura <strong>entre 5 y 10 años</strong> según la calidad. Los cerámicos que instalamos tienen garantía de 5 años contra burbujeo, decoloración y despegue. El enemigo número uno es rascar el vidrio por adentro con objetos duros o limpiar con productos abrasivos.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Puedo bajar la ventanilla recién terminado el trabajo?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p4">
+              ¿Puedo bajar la ventanilla recién terminado el trabajo?
+            </button>
+          </h2>
+          <div id="p4" class="accordion-collapse collapse" data-bs-parent="#accPolarizado">
+            <div class="accordion-body">
+              No. Hay que esperar mínimo <strong>3 a 5 días</strong> antes de bajar las ventanillas. El film necesita ese tiempo para adherirse bien a los bordes del vidrio. Si bajás la ventana antes, el borde del film puede despegarse y arruinar el trabajo.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Cómo limpio los vidrios polarizados por adentro?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p5">
+              ¿Cómo limpio los vidrios polarizados por adentro?
+            </button>
+          </h2>
+          <div id="p5" class="accordion-collapse collapse" data-bs-parent="#accPolarizado">
+            <div class="accordion-body">
+              Usá un <strong>paño de microfibra suave</strong> humedecido con agua o un limpiador de vidrios sin amoníaco. El amoníaco destruye el film con el tiempo. Nada de esponjas abrasivas, espátulas ni uñas. Por fuera podés limpiar normalmente.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── GRUPO: LAVADO ── -->
+    <div class="faq-grupo" data-cat="lavado">
+      <p class="faq-grupo-titulo"><i class="bi bi-droplet-fill"></i>Lavado & Mantenimiento</p>
+      <div class="accordion" id="accLavado">
+
+        <div class="accordion-item" data-pregunta="¿Cada cuánto conviene lavar el auto?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#l1">
+              ¿Cada cuánto conviene lavar el auto?
+            </button>
+          </h2>
+          <div id="l1" class="accordion-collapse collapse" data-bs-parent="#accLavado">
+            <div class="accordion-body">
+              Lo ideal es cada <strong>1 a 2 semanas</strong>. Dejar la suciedad mucho tiempo (barro, excrementos de aves, resina de árboles) daña la pintura aunque no lo notes. Los excrementos de pájaros son especialmente agresivos — si caen, sacálos lo antes posible con agua y microfibra.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Qué productos recomiendan para lavar el auto en casa?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#l2">
+              ¿Qué productos recomiendan para lavar el auto en casa?
+            </button>
+          </h2>
+          <div id="l2" class="accordion-collapse collapse" data-bs-parent="#accLavado">
+            <div class="accordion-body">
+              <ul>
+                <li><strong>Shampoo automotriz pH neutro</strong> (Meguiar's Gold Class, Gyeon Bathe, Sonax). Nunca detergente de cocina — seca la cera y daña la cerámica.</li>
+                <li><strong>Dos baldes</strong>: uno para el jabón y otro con agua limpia para enjuagar el guante.</li>
+                <li><strong>Guante de lavado de microfibra</strong>, nunca esponja.</li>
+                <li><strong>Paños de microfibra 70/30</strong> para secar. Nada de trapos de tela.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Los lavaderos automáticos de cepillos dañan la pintura?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#l3">
+              ¿Los lavaderos automáticos de cepillos dañan la pintura?
+            </button>
+          </h2>
+          <div id="l3" class="accordion-collapse collapse" data-bs-parent="#accLavado">
+            <div class="accordion-body">
+              Sí. Los cepillos rotativos generan micro-rayones en la pintura que se van acumulando con el tiempo. Si tenés cerámica, los cepillos pueden degradar el recubrimiento. Lo mejor siempre es el lavado a mano o lavaderos de alta presión sin contacto.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Cómo seco el auto sin rayarlo?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#l4">
+              ¿Cómo seco el auto sin rayarlo?
+            </button>
+          </h2>
+          <div id="l4" class="accordion-collapse collapse" data-bs-parent="#accLavado">
+            <div class="accordion-body">
+              Usá paños de <strong>microfibra de secado gruesos</strong> (twist pile o waffle weave). La técnica es dar suaves toquecitos o deslizar sin presión. Si usás un secador de aire o blower, mejor todavía — cero contacto, cero rayones.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Qué hago si cae resina de árbol o excremento de pájaro?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#l5">
+              ¿Qué hago si cae resina de árbol o excremento de pájaro?
+            </button>
+          </h2>
+          <div id="l5" class="accordion-collapse collapse" data-bs-parent="#accLavado">
+            <div class="accordion-body">
+              Actuá rápido. Humedecé la zona con agua y dejá actuar unos segundos para ablandar. Luego retirá con microfibra <strong>sin frotar fuerte</strong>. Para la resina podés usar un poco de alcohol isopropílico diluido. Si el daño ya está en la pintura, un pulido lo soluciona.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── GRUPO: DETAILING ── -->
+    <div class="faq-grupo" data-cat="detailing">
+      <p class="faq-grupo-titulo"><i class="bi bi-stars"></i>Detailing & Pintura</p>
+      <div class="accordion" id="accDetailing">
+
+        <div class="accordion-item" data-pregunta="¿Qué es el detailing y en qué se diferencia de un lavado?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#d1">
+              ¿Qué es el detailing y en qué se diferencia de un lavado?
+            </button>
+          </h2>
+          <div id="d1" class="accordion-collapse collapse" data-bs-parent="#accDetailing">
+            <div class="accordion-body">
+              Un lavado limpia la suciedad superficial. El detailing va mucho más profundo: <strong>corrige imperfecciones de la pintura</strong> (rayones, remolinos, marcas de agua), descontamina la carrocería con arcilla, pule y protege. El resultado es una pintura restaurada, no solo limpia.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Cada cuánto conviene hacer un detailing completo?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#d2">
+              ¿Cada cuánto conviene hacer un detailing completo?
+            </button>
+          </h2>
+          <div id="d2" class="accordion-collapse collapse" data-bs-parent="#accDetailing">
+            <div class="accordion-body">
+              En general <strong>una vez al año</strong> es suficiente para mantener la pintura en buen estado. Si el auto está muy descuidado o vas a aplicar cerámica, es el paso previo obligatorio — la cerámica solo se aplica sobre pintura perfecta.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Se pueden sacar los rayones con pulido?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#d3">
+              ¿Se pueden sacar los rayones con pulido?
+            </button>
+          </h2>
+          <div id="d3" class="accordion-collapse collapse" data-bs-parent="#accDetailing">
+            <div class="accordion-body">
+              Los rayones superficiales que no llegan a la base se eliminan con pulido. Si el rayón llega a la chapa o se siente al tacto, el pulido los <strong>disimula pero no los elimina</strong> — en ese caso hay que recurrir a pintura.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Qué es la arcilla de descontaminación y cuándo se usa?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#d4">
+              ¿Qué es la arcilla de descontaminación y cuándo se usa?
+            </button>
+          </h2>
+          <div id="d4" class="accordion-collapse collapse" data-bs-parent="#accDetailing">
+            <div class="accordion-body">
+              Es una barra o disco de arcilla sintética que arrastra partículas metálicas, brea, resina y otros contaminantes incrustados en la pintura que no se van con el lavado. Se usa siempre antes de pulir o aplicar cerámica.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── GRUPO: GENERAL ── -->
+    <div class="faq-grupo" data-cat="general">
+      <p class="faq-grupo-titulo"><i class="bi bi-question-circle-fill"></i>Preguntas Generales</p>
+      <div class="accordion" id="accGeneral">
+
+        <div class="accordion-item" data-pregunta="¿Cómo saco un turno?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g1">
+              ¿Cómo saco un turno?
+            </button>
+          </h2>
+          <div id="g1" class="accordion-collapse collapse" data-bs-parent="#accGeneral">
+            <div class="accordion-body">
+              Podés sacar turno directamente desde la sección <a href="turnos.html">Turnos</a> o mandarnos un mensaje por WhatsApp. En menos de 24 hs te confirmamos fecha y horario.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Trabajan con todos los tipos de vehículos?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g2">
+              ¿Trabajan con todos los tipos de vehículos?
+            </button>
+          </h2>
+          <div id="g2" class="accordion-collapse collapse" data-bs-parent="#accGeneral">
+            <div class="accordion-body">
+              Sí. Trabajamos con <strong>autos, SUVs, camionetas y motos</strong>. Los precios varían según el tamaño del vehículo.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Puedo llevar el auto con lluvia o mal tiempo?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g3">
+              ¿Puedo llevar el auto con lluvia o mal tiempo?
+            </button>
+          </h2>
+          <div id="g3" class="accordion-collapse collapse" data-bs-parent="#accGeneral">
+            <div class="accordion-body">
+              Para lavados y trabajos de interior no hay problema. Para polarizado, cerámica y detailing exterior necesitamos trabajar en seco. Si el día está feo te avisamos para reprogramar sin drama.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" data-pregunta="¿Ofrecen garantía en los trabajos?">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g4">
+              ¿Ofrecen garantía en los trabajos?
+            </button>
+          </h2>
+          <div id="g4" class="accordion-collapse collapse" data-bs-parent="#accGeneral">
+            <div class="accordion-body">
+              Sí. El polarizado cerámico tiene <strong>5 años de garantía</strong> contra burbujeo y despegue. La nano cerámica tiene <strong>2 años</strong>. Para el resto de los servicios, si hay algún problema en los días siguientes nos avisás y lo revisamos sin costo.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Sin resultados -->
+    <div id="sinResultadosFaq" style="display:none; text-align:center; padding:3rem 0; color:var(--texto-suave);">
+      <i class="bi bi-search d-block mb-2" style="font-size:2rem"></i>
+      No encontramos una pregunta sobre eso.
+      <a href="https://wa.me/1135706071" style="color:var(--acento)">Preguntanos por WhatsApp</a>.
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="py-5 px-3">
+  <div class="container">
+    <div class="cta-turno">
+      <h3>¿NO ENCONTRASTE <span>LO QUE BUSCABAS?</span></h3>
+      <p>Escribinos por WhatsApp y te respondemos en el momento.</p>
+      <a href="https://wa.me/1135706071" class="btn-cta" target="_blank">
+        <i class="bi bi-whatsapp me-2"></i>Escribirnos
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <img src="./imagenes/logo-byntg.png" alt="By NTG" style="height:48px; margin-bottom:1rem;">
+        <p class="footer-copy" style="font-size:.88rem;">Estética automotriz profesional en Buenos Aires.</p>
+        <p class="footer-copy mt-1">© 2025 By NTG</p>
+      </div>
+      <div class="col-md-4">
+        <p class="footer-titulo">NAVEGACIÓN</p>
+        <a href="index.html"    class="footer-link">Servicios</a>
+        <a href="nosotros.html" class="footer-link">Quiénes somos</a>
+        <a href="dudas.html"    class="footer-link">Dudas frecuentes</a>
+        <a href="turnos.html"   class="footer-link">Sacar turno</a>
+      </div>
+      <div class="col-md-4">
+        <p class="footer-titulo">CONTACTO</p>
+        <a href="https://wa.me/1135706071" class="footer-link" target="_blank">
+          <i class="bi bi-whatsapp me-2"></i>1135706071
+        </a>
+        <a href="https://www.instagram.com/byntg/" class="footer-link" target="_blank">
+          <i class="bi bi-instagram me-2"></i>@by__ntg
+        </a>
+        <a href="#" class="footer-link">
+          <i class="bi bi-geo-alt-fill me-2"></i>Buenos Aires, Argentina
+        </a>
+      </div>
+    </div>
+    <div class="border-top mt-4 pt-3" style="border-color:var(--gris-brd) !important;">
+      <p class="footer-copy text-center mb-0">Diseño y Desarrollo — Mateo Vairo</p>
+    </div>
+  </div>
 </footer>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/dudas.js"></script>
+
 </body>
 </html>

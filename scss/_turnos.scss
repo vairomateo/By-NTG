@@ -1,0 +1,382 @@
+// ==========================================
+//  BY NTG — _turnos.scss (Modificado)
+// ==========================================
+
+// ── HERO ──────────────────────────────────
+.hero-turnos {
+  padding: 120px 0 80px;
+  text-align: center;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 60px,
+      rgba(232, 197, 71, 0.03) 60px,
+      rgba(232, 197, 71, 0.03) 61px
+    );
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+    color: var(--blanco);
+
+    span { color: var(--acento); }
+  }
+
+  p {
+    color: var(--texto-suave);
+    font-size: 1.05rem;
+    max-width: 500px;
+    margin: 1.2rem auto 0;
+  }
+}
+
+// ── FORM CONTAINER ────────────────────────
+.turno-form-wrap {
+  background: var(--gris-osc);
+  border: 1px solid var(--gris-brd);
+  border-radius: 16px;
+  padding: 2.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+// ── STEPS INDICADOR ───────────────────────
+.steps-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 2.5rem;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  position: relative;
+}
+
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--gris-brd);
+  background: var(--gris-med);
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.step-label {
+  font-size: 0.72rem;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.step-line {
+  width: 60px; // Reducido levemente para que entren bien los 4 pasos
+  height: 2px;
+  background: var(--gris-brd);
+  margin: 0 4px;
+  margin-bottom: 22px;
+  transition: background 0.3s ease;
+
+  &.completado { background: var(--acento); }
+}
+
+.step-item.activo .step-circle {
+  background: var(--acento);
+  border-color: var(--acento);
+  color: var(--negro);
+}
+.step-item.activo .step-label { color: var(--acento); }
+
+.step-item.completado .step-circle {
+  background: var(--acento);
+  border-color: var(--acento);
+  color: var(--negro);
+}
+.step-item.completado .step-label { color: var(--acento); }
+
+// ── SECCIONES DEL FORM ────────────────────
+.form-seccion {
+  display: none;
+
+  &.activa { display: block; }
+}
+
+.form-seccion-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: var(--blanco);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--gris-brd);
+
+  i {
+    color: var(--acento);
+    margin-right: 0.5rem;
+  }
+}
+
+// ── INPUTS ────────────────────────────────
+.form-label-byntg {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.form-control-byntg,
+.form-select-byntg {
+  background: var(--gris-med);
+  color: var(--blanco);
+  border: 1px solid var(--gris-brd);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  font-size: 0.92rem;
+  width: 100%;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  appearance: none;
+  font-family: 'Inter', sans-serif;
+
+  &:focus {
+    outline: none;
+    border-color: var(--acento);
+    box-shadow: 0 0 0 3px rgba(232, 197, 71, 0.1);
+  }
+
+  &::placeholder { color: var(--texto-suave); }
+
+  &.error { border-color: #e05555; }
+}
+
+.form-select-byntg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23E8C547' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+
+  option {
+    background: var(--gris-med);
+    color: var(--blanco);
+  }
+}
+
+.campo-error-msg {
+  font-size: 0.78rem;
+  color: #e05555;
+  margin-top: 0.3rem;
+  display: none;
+
+  &.visible { display: block; }
+}
+
+// ── BOTONES NAV ───────────────────────────
+.btn-siguiente {
+  background: var(--acento);
+  color: var(--negro);
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+
+  &:hover {
+    background: var(--acento-d);
+    transform: translateY(-1px);
+  }
+}
+
+.btn-anterior {
+  background: transparent;
+  color: var(--texto-suave);
+  font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid var(--gris-brd);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.25s, color 0.25s;
+
+  &:hover {
+    border-color: var(--acento);
+    color: var(--acento);
+  }
+}
+
+// ── CHIPS DE SERVICIO ─────────────────────
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.6rem;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 0.3rem;
+
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-track { background: var(--gris-med); }
+  &::-webkit-scrollbar-thumb { background: var(--gris-brd); border-radius: 2px; }
+}
+
+.servicio-chip {
+  background: var(--gris-med);
+  border: 1px solid var(--gris-brd);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  line-height: 1.3;
+
+  &:hover {
+    border-color: var(--acento);
+    color: var(--blanco);
+  }
+
+  &.seleccionado {
+    background: rgba(232, 197, 71, 0.12);
+    border-color: var(--acento);
+    color: var(--acento);
+    font-weight: 600;
+  }
+
+  .chip-cat {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--texto-suave);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  &.seleccionado .chip-cat { color: var(--acento-d); }
+}
+
+// ── SECTOR HORARIOS (NUEVO) ────────────────
+.horas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.hora-chip {
+  background: var(--gris-med);
+  border: 1px solid var(--gris-brd);
+  color: var(--blanco);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(.deshabilitado) {
+    border-color: var(--acento);
+    color: var(--acento);
+  }
+
+  &.seleccionado {
+    background: var(--acento);
+    border-color: var(--acento);
+    color: var(--negro);
+    font-weight: 600;
+  }
+
+  &.deshabilitado {
+    background: #111111;
+    border-color: #222222;
+    color: #444444;
+    text-decoration: line-through;
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}
+
+// ── RESUMEN FINAL ─────────────────────────
+.resumen-box {
+  background: var(--gris-med);
+  border: 1px solid var(--gris-brd);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.resumen-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--acento);
+  margin-bottom: 0.8rem;
+}
+
+.resumen-fila {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  margin-bottom: 0.4rem;
+  color: var(--texto-suave);
+
+  span:last-child { color: var(--blanco); font-weight: 500; }
+}
+
+// ── SUCCESS STATE ─────────────────────────
+.turno-success {
+  display: none;
+  text-align: center;
+  padding: 3rem 1rem;
+
+  &.visible { display: block; }
+
+  .success-icon {
+    font-size: 3.5rem;
+    color: var(--acento);
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--blanco);
+    margin-bottom: 0.5rem;
+  }
+
+  p { color: var(--texto-suave); font-size: 0.95rem; }
+}
+
+// ── RESPONSIVE ────────────────────────────
+@media (max-width: 600px) {
+  .turno-form-wrap { padding: 1.5rem 1rem; }
+  .step-line { width: 25px; }
+  .step-label { font-size: 0.65rem; }
+  .servicios-grid { grid-template-columns: 1fr 1fr; }
+}

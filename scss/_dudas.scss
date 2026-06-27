@@ -1,71 +1,156 @@
-/* ==========================================================================
-   ESTILOS PREMIUM PARA PREGUNTAS FRECUENTES
-   ========================================================================== */
+// ==========================================
+//  BY NTG — _dudas.scss
+// ==========================================
 
-.faq-section {
-    // Convertimos cada renglón en una tarjeta individual refinada
-    .accordion-item {
-        border: 1px solid #e8e4d8 !important;
-        background-color: #ffffff !important;
-        border-radius: 12px !important; // Esquinas redondeadas suaves
-        overflow: hidden;
-        transition: all 0.3s ease;
+// ── HERO ──────────────────────────────────
+.hero-dudas {
+  padding: 120px 0 80px;
+  text-align: center;
+  position: relative;
 
-        &:hover {
-            border-color: #cfa361 !important; // El borde se vuelve dorado al pasar el mouse
-            transform: translateY(-2px);       // Micro elevación pro
-        }
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 60px,
+      rgba(232, 197, 71, 0.03) 60px,
+      rgba(232, 197, 71, 0.03) 61px
+    );
+  }
 
-    // El botón del encabezado de la pregunta
-    .accordion-button {
-        background-color: #ffffff !important;
-        color: #2d2d2d !important;
-        font-weight: 600;
-        font-size: 1.05rem;
-        padding: 20px 24px;
-        box-shadow: none !important; // Chau al reborde azul horrible de Bootstrap
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+    color: var(--blanco);
 
-        // Estilo del circulito contenedor del ícono izquierdo
-        .faq-icon-wrapper {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 34px;
-            height: 34px;
-            background-color: #f5f2eb; // Fondo cremita suave para el ícono
-            color: #cfa361;            // Ícono color oro
-            border-radius: 50%;
-            margin-right: 14px;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
+    span { color: var(--acento); }
+  }
 
-        // Modificamos la flechita original de Bootstrap para que combine
-        &::after {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23cfa361'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
-            background-size: 1.1rem;
-        }
+  p {
+    color: var(--texto-suave);
+    font-size: 1.05rem;
+    max-width: 500px;
+    margin: 1.2rem auto 0;
+  }
+}
 
-        // CUANDO LA PREGUNTA ESTÁ ABIERTA (Active state)
-        &:not(.collapsed) {
-            background-color: #fdfcf8 !important; // Fondo sutilmente diferente al abrirse
-            color: #cfa361 !important;            // El texto de la pregunta pasa a dorado
+// ── FILTROS CATEGORÍA ─────────────────────
+.cat-btn {
+  background: var(--gris-med);
+  color: var(--texto-suave);
+  border: 1px solid var(--gris-brd);
+  border-radius: 50px;
+  padding: 0.45rem 1.2rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
 
-            .faq-icon-wrapper {
-                background-color: #cfa361; // Invierte colores: fondo dorado...
-                color: #ffffff;            // ...e ícono blanco
-            }
-        }
-    }
+  &:hover,
+  &.activo {
+    background: var(--acento);
+    color: var(--negro);
+    border-color: var(--acento);
+    font-weight: 600;
+  }
+}
 
-    // La cajita del texto de la respuesta
-    .accordion-body {
-        background-color: #ffffff;
-        color: #555555 !important;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        padding: 0px 24px 24px 72px; /* Alineado perfecto abajo del texto del título, salteando el ícono */
-        border-top: none !important;
-    }
+// ── BUSCADOR ──────────────────────────────
+.faq-search {
+  background: var(--gris-med);
+  color: var(--blanco);
+  border: 1px solid var(--gris-brd);
+  border-radius: var(--radius);
+  padding: 0.75rem 1.1rem;
+  font-size: 0.95rem;
+  width: 100%;
+  transition: border-color 0.25s;
+
+  &:focus {
+    outline: none;
+    border-color: var(--acento);
+  }
+
+  &::placeholder { color: var(--texto-suave); }
+}
+
+// ── GRUPOS FAQ ────────────────────────────
+.faq-grupo {
+  margin-bottom: 2.5rem;
+
+  &.oculto { display: none; }
+}
+
+.faq-grupo-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  color: var(--acento);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  i { font-size: 1.1rem; }
+}
+
+// ── ACORDEÓN ──────────────────────────────
+.accordion-item {
+  background: var(--gris-osc) !important;
+  border: 1px solid var(--gris-brd) !important;
+  border-radius: var(--radius) !important;
+  margin-bottom: 0.6rem;
+  overflow: hidden;
+}
+
+.accordion-button {
+  background: var(--gris-osc) !important;
+  color: var(--blanco) !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 1.1rem 1.3rem;
+  box-shadow: none !important;
+
+  &:not(.collapsed) {
+    color: var(--acento) !important;
+    border-bottom: 1px solid var(--gris-brd);
+  }
+
+  &::after {
+    filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg);
+  }
+}
+
+.accordion-body {
+  background: var(--gris-osc);
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  padding: 1rem 1.3rem 1.2rem;
+
+  strong { color: var(--blanco); }
+
+  a { color: var(--acento); }
+
+  ul {
+    padding-left: 1.2rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0;
+
+    li { margin-bottom: 0.3rem; }
+  }
+}
+
+// ── RESPONSIVE ────────────────────────────
+@media (max-width: 768px) {
+  .cats-scroll {
+    overflow-x: auto;
+    flex-wrap: nowrap !important;
+    padding-bottom: 0.5rem;
+  }
+  .cat-btn { flex-shrink: 0; }
 }

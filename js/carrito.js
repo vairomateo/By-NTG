@@ -20,7 +20,7 @@ export function vaciarCarrito() {
 
 // ==================== ESTADO GLOBAL Y STORAGE ====================
 
-const WA_NUMBER = '5491135706071';
+const WA_NUMBER = '1135706071';
 const STORAGE_KEY = 'carritoQuerandi';
 
 // Migrar ítems viejos que no tengan imagen guardada — les ponemos string vacío
