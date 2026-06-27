@@ -1,0 +1,14 @@
+// _productos.scss
+.producto {
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: .5rem;
+        transition: transform $transicion;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.05);
+        }
+    }
+}

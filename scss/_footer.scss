@@ -1,0 +1,15 @@
+footer {
+    background-color: $color-negro;
+    color: $color-blanco;
+
+    padding: 30px 0;
+
+    .footer-nav-link {
+        color: $color-blanco;
+        transition: $transicion;
+
+        &:hover {
+            color: $color-principal;
+        }
+    }
+}

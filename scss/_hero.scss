@@ -1,0 +1,82 @@
+.hero-section {
+
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../imagenes/imagen_mate_tradicion.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+    .hero-overlay {
+
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-content {
+
+        position: relative;
+        z-index: 2;
+        color: $color-blanco;
+        max-width: 700px;
+
+        h1 {
+
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        p {
+
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .btn {
+
+            background-color: $color-principal-dark;
+            color: $color-blanco;
+            border: none;
+            padding: 14px 36px;
+            border-radius: $radius;
+            font-weight: 600;
+            transition: $transicion;
+
+            &:hover {
+
+                background-color: $color-principal;
+                transform: translateY(-3px);
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        min-height: 80vh;
+
+        .hero-content {
+
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+}

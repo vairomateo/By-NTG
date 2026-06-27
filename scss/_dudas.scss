@@ -1,0 +1,71 @@
+/* ==========================================================================
+   ESTILOS PREMIUM PARA PREGUNTAS FRECUENTES
+   ========================================================================== */
+
+.faq-section {
+    // Convertimos cada renglón en una tarjeta individual refinada
+    .accordion-item {
+        border: 1px solid #e8e4d8 !important;
+        background-color: #ffffff !important;
+        border-radius: 12px !important; // Esquinas redondeadas suaves
+        overflow: hidden;
+        transition: all 0.3s ease;
+
+        &:hover {
+            border-color: #cfa361 !important; // El borde se vuelve dorado al pasar el mouse
+            transform: translateY(-2px);       // Micro elevación pro
+        }
+    }
+
+    // El botón del encabezado de la pregunta
+    .accordion-button {
+        background-color: #ffffff !important;
+        color: #2d2d2d !important;
+        font-weight: 600;
+        font-size: 1.05rem;
+        padding: 20px 24px;
+        box-shadow: none !important; // Chau al reborde azul horrible de Bootstrap
+
+        // Estilo del circulito contenedor del ícono izquierdo
+        .faq-icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            background-color: #f5f2eb; // Fondo cremita suave para el ícono
+            color: #cfa361;            // Ícono color oro
+            border-radius: 50%;
+            margin-right: 14px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        // Modificamos la flechita original de Bootstrap para que combine
+        &::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23cfa361'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+            background-size: 1.1rem;
+        }
+
+        // CUANDO LA PREGUNTA ESTÁ ABIERTA (Active state)
+        &:not(.collapsed) {
+            background-color: #fdfcf8 !important; // Fondo sutilmente diferente al abrirse
+            color: #cfa361 !important;            // El texto de la pregunta pasa a dorado
+
+            .faq-icon-wrapper {
+                background-color: #cfa361; // Invierte colores: fondo dorado...
+                color: #ffffff;            // ...e ícono blanco
+            }
+        }
+    }
+
+    // La cajita del texto de la respuesta
+    .accordion-body {
+        background-color: #ffffff;
+        color: #555555 !important;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        padding: 0px 24px 24px 72px; /* Alineado perfecto abajo del texto del título, salteando el ícono */
+        border-top: none !important;
+    }
+}

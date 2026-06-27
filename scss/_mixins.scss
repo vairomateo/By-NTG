@@ -1,0 +1,11 @@
+// _mixins.scss
+
+@mixin sombra-suave {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+@mixin mobile {
+    @media (max-width: 576px) {
+        @content;
+    }
+}

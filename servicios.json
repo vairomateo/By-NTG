@@ -1,0 +1,202 @@
+{
+  "servicios": [
+    {
+      "id": 1,
+      "categoria": "polarizado",
+      "nombre": "Polarizado Estándar",
+      "descripcion": "Film de alta calidad con 20% de luz transmitida. Ideal para uso diario, UV al 99%.",
+      "precio": 45000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["Auto", "SUV"],
+      "badge": "badge-polarizado",
+      "badgeLabel": "Polarizado"
+    },
+    {
+      "id": 2,
+      "categoria": "polarizado",
+      "nombre": "Polarizado Carbono Premium",
+      "descripcion": "Film de carbono sin interferencia GPS ni señal. Mayor durabilidad y efecto mate.",
+      "precio": 75000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["Auto", "SUV", "Camioneta"],
+      "badge": "badge-polarizado",
+      "badgeLabel": "Polarizado"
+    },
+    {
+      "id": 3,
+      "categoria": "polarizado",
+      "nombre": "Polarizado Cerámico",
+      "descripcion": "Lo mejor del mercado. Bloqueo térmico superior, sin interferencias, garantía 5 años.",
+      "precio": 120000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["Auto", "SUV", "Camioneta", "Moto"],
+      "badge": "badge-polarizado",
+      "badgeLabel": "Polarizado"
+    },
+    {
+      "id": 4,
+      "categoria": "polarizado",
+      "nombre": "Polarizado Parabrisas",
+      "descripcion": "Film especial homologado para parabrisas. Reducción del calor sin afectar visibilidad.",
+      "precio": 55000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["Auto", "SUV", "Camioneta"],
+      "badge": "badge-polarizado",
+      "badgeLabel": "Polarizado"
+    },
+    {
+      "id": 5,
+      "categoria": "estetica",
+      "nombre": "Pulido de Ópticas",
+      "descripcion": "Recuperamos la transparencia de tus ópticas delanteras. Incluye sellado protector.",
+      "precio": 18000,
+      "precioNota": "par de ópticas",
+      "vehiculos": ["Auto", "SUV", "Camioneta"],
+      "badge": "badge-estetica",
+      "badgeLabel": "Estética"
+    },
+    {
+      "id": 6,
+      "categoria": "estetica",
+      "nombre": "Lavado de Tapizado",
+      "descripcion": "Limpieza profunda de asientos, alfombras y techo. Eliminación de olores y manchas.",
+      "precio": 35000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["Auto", "SUV", "Camioneta"],
+      "badge": "badge-estetica",
+      "badgeLabel": "Estética"
+    },
+    {
+      "id": 7,
+      "categoria": "estetica",
+      "nombre": "Restauración de Plásticos",
+      "descripcion": "Renegrido y acondicionamiento de plásticos exteriores e interiores oxidados.",
+      "precio": 22000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["Auto", "SUV"],
+      "badge": "badge-estetica",
+      "badgeLabel": "Estética"
+    },
+    {
+      "id": 8,
+      "categoria": "detailing",
+      "nombre": "Detailing Exterior",
+      "descripcion": "Pulido con pulidora, descontaminación, arcilla y protección con cera carnauba.",
+      "precio": 90000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["Auto", "SUV", "Camioneta"],
+      "badge": "badge-detailing",
+      "badgeLabel": "Detailing"
+    },
+    {
+      "id": 9,
+      "categoria": "detailing",
+      "nombre": "Detailing Completo",
+      "descripcion": "Exterior + interior. Pulido, corrección de pintura, ozono, tapizado y más.",
+      "precio": 150000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["Auto", "SUV", "Camioneta"],
+      "badge": "badge-detailing",
+      "badgeLabel": "Detailing"
+    },
+    {
+      "id": 10,
+      "categoria": "detailing",
+      "nombre": "Nano Cerámica",
+      "descripcion": "Recubrimiento cerámico profesional. Dureza 9H, garantía 2 años, hidrofóbico total.",
+      "precio": 200000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["Auto", "SUV", "Camioneta"],
+      "badge": "badge-detailing",
+      "badgeLabel": "Detailing"
+    },
+    {
+      "id": 11,
+      "categoria": "lavado",
+      "nombre": "Lavado Común",
+      "descripcion": "Exterior completo, aspirado interior y limpieza de vidrios.",
+      "precio": 8000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["Auto", "Moto"],
+      "badge": "badge-lavado",
+      "badgeLabel": "Lavado"
+    },
+    {
+      "id": 12,
+      "categoria": "lavado",
+      "nombre": "Lavado Común SUV / Camioneta",
+      "descripcion": "Exterior completo, aspirado interior y limpieza de vidrios para vehículos grandes.",
+      "precio": 12000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["SUV", "Camioneta"],
+      "badge": "badge-lavado",
+      "badgeLabel": "Lavado"
+    },
+    {
+      "id": 13,
+      "categoria": "lavado",
+      "nombre": "Lavado Premium",
+      "descripcion": "Todo lo del lavado común + limpieza de tapizado, tablero y molduras interiores.",
+      "precio": 18000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["Auto", "Moto"],
+      "badge": "badge-lavado",
+      "badgeLabel": "Lavado"
+    },
+    {
+      "id": 14,
+      "categoria": "lavado",
+      "nombre": "Lavado Premium SUV / Camioneta",
+      "descripcion": "Premium completo adaptado a vehículos grandes con mayor superficie de trabajo.",
+      "precio": 25000,
+      "precioNota": "por vehículo",
+      "vehiculos": ["SUV", "Camioneta"],
+      "badge": "badge-lavado",
+      "badgeLabel": "Lavado"
+    },
+    {
+      "id": 15,
+      "categoria": "lavado",
+      "nombre": "Lavado de Moto",
+      "descripcion": "Lavado exterior detallado con productos específicos para motos.",
+      "precio": 6000,
+      "precioNota": "por moto",
+      "vehiculos": ["Moto"],
+      "badge": "badge-lavado",
+      "badgeLabel": "Lavado"
+    },
+    {
+      "id": 16,
+      "categoria": "combo",
+      "nombre": "Combo Polarizado + Lavado Premium",
+      "descripcion": "Polarizado estándar más lavado premium completo. El combo más pedido.",
+      "precio": 58000,
+      "precioNota": "combo especial",
+      "vehiculos": ["Auto", "SUV"],
+      "badge": "badge-combo",
+      "badgeLabel": "Combo"
+    },
+    {
+      "id": 17,
+      "categoria": "combo",
+      "nombre": "Combo Detailing + Cerámica",
+      "descripcion": "Corrección de pintura completa y aplicación de recubrimiento cerámico 9H.",
+      "precio": 320000,
+      "precioNota": "combo especial",
+      "vehiculos": ["Auto", "SUV", "Camioneta"],
+      "badge": "badge-combo",
+      "badgeLabel": "Combo"
+    },
+    {
+      "id": 18,
+      "categoria": "combo",
+      "nombre": "Combo Estética Completa",
+      "descripcion": "Ópticas + tapizado + plásticos. Tu interior y exterior recuperan la vida.",
+      "precio": 68000,
+      "precioNota": "combo especial",
+      "vehiculos": ["Auto", "SUV"],
+      "badge": "badge-combo",
+      "badgeLabel": "Combo"
+    }
+  ]
+}
