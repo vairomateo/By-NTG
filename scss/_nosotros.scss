@@ -26,7 +26,6 @@
     font-size: clamp(3rem, 8vw, 6rem);
     line-height: 0.95;
     color: var(--blanco);
-
     span { color: var(--acento); }
   }
 
@@ -38,62 +37,129 @@
   }
 }
 
-// ── CARDS EQUIPO ──────────────────────────
-.equipo-card {
-  background: var(--gris-osc);
-  border: 1px solid var(--gris-brd);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+// ── GALERÍA ───────────────────────────────
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
 
-  &:hover {
-    transform: translateY(-6px);
-    border-color: var(--acento);
-    box-shadow: 0 16px 40px rgba(232, 197, 71, 0.1);
+.galeria-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  border: 1px solid var(--gris-brd);
+
+  &:hover .galeria-overlay {
+    opacity: 1;
+  }
+
+  &:hover .galeria-img {
+    transform: scale(1.05);
   }
 }
 
-.equipo-foto {
+.galeria-img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+  background: var(--gris-med); // color mientras carga
 }
 
-.equipo-foto-placeholder {
+.galeria-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+}
+
+.galeria-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  color: var(--acento);
+}
+
+// ── LIGHTBOX ──────────────────────────────
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.93);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+
+  &.abierto { display: flex; }
+}
+
+.lightbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 860px;
   width: 100%;
-  aspect-ratio: 1 / 1;
+}
+
+.lightbox-content img {
+  max-height: 75vh;
+  max-width: 100%;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.lightbox-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  color: var(--acento);
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  background: none;
+  border: none;
+  color: var(--blanco);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  &:hover { color: var(--acento); }
+}
+
+.lightbox-nav {
   background: var(--gris-med);
+  border: 1px solid var(--gris-brd);
+  color: var(--blanco);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
-  color: var(--gris-brd);
-}
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
 
-.equipo-info { padding: 1.4rem; }
-
-.equipo-nombre {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem;
-  letter-spacing: 0.06em;
-  color: var(--blanco);
-  margin-bottom: 0.15rem;
-}
-
-.equipo-rol {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--acento);
-  margin-bottom: 0.8rem;
-}
-
-.equipo-desc {
-  font-size: 0.87rem;
-  color: var(--texto-suave);
-  line-height: 1.6;
+  &:hover {
+    background: var(--acento);
+    color: var(--negro);
+    border-color: var(--acento);
+  }
 }
 
 // ── MARCAS (carrusel infinito) ─────────────
@@ -111,7 +177,6 @@
     color: var(--blanco);
     text-align: center;
     margin-bottom: 0.5rem;
-
     span { color: var(--acento); }
   }
 }
@@ -135,7 +200,6 @@
   gap: 2rem;
   width: max-content;
   animation: scroll-marcas 28s linear infinite;
-
   &:hover { animation-play-state: paused; }
 }
 
@@ -154,10 +218,19 @@
   font-weight: 500;
   color: var(--texto-suave);
   flex-shrink: 0;
-  transition: border-color 0.2s, color 0.2s;
+  i { color: var(--acento); margin-right: 0.4rem; }
+}
 
-  i {
-    color: var(--acento);
-    margin-right: 0.4rem;
+// ── RESPONSIVE ────────────────────────────
+@media (max-width: 768px) {
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+
+@media (max-width: 480px) {
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+  .lightbox-nav { display: none; }
 }

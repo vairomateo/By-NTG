@@ -1,33 +1,62 @@
 // ==========================================
-//   BY NTG — turnos.js (Con Calendario Custom)
+//   BY NTG — turnos.js (Catálogo Actualizado)
 // ==========================================
 
 const SERVICIOS = [
-    { nombre: "Polarizado Estándar",         cat: "Polarizado" },
-    { nombre: "Polarizado Carbono Premium",    cat: "Polarizado" },
-    { nombre: "Polarizado Cerámico",           cat: "Polarizado" },
-    { nombre: "Polarizado Parabrisas",             cat: "Polarizado" },
-    { nombre: "Pulido de Ópticas",                 cat: "Estética"   },
-    { nombre: "Lavado de Tapizado",                cat: "Estética"   },
-    { nombre: "Restauración de Plásticos",         cat: "Estética"   },
-    { nombre: "Detailing Exterior",                cat: "Detailing"  },
-    { nombre: "Detailing Completo",                cat: "Detailing"  },
-    { nombre: "Nano Cerámica",                     cat: "Detailing"  },
-    { nombre: "Lavado Común",                      cat: "Lavado"     },
-    { nombre: "Lavado Común SUV / Camioneta",      cat: "Lavado"     },
-    { nombre: "Lavado Premium",                    cat: "Lavado"     },
-    { nombre: "Lavado Premium SUV / Camioneta",    cat: "Lavado"     },
-    { nombre: "Lavado de Moto",                    cat: "Lavado"     },
-    { nombre: "Combo Polarizado + Lavado Premium", cat: "Combo"      },
-    { nombre: "Combo Detailing + Cerámica",        cat: "Combo"      },
-    { nombre: "Combo Estética Completa",           cat: "Combo"      },
+    // 🚗 POLARIZADOS (Lámina Premium)
+    { nombre: "Polarizado Premium - Auto ($85.000)", cat: "Polarizado" },
+    { nombre: "Polarizado Premium - SUV ($95.000)", cat: "Polarizado" },
+    { nombre: "Polarizado Premium - Camioneta ($95.000 a $115.000)", cat: "Polarizado" },
+
+    // ✨ ABRILLANTADOS (Descontaminación incluida)
+    { nombre: "Abrillantado Común (1 Paso) - Auto ($70.000)", cat: "Estética" },
+    { nombre: "Abrillantado Común (1 Paso) - SUV ($85.000)", cat: "Estética" },
+    { nombre: "Abrillantado Común (1 Paso) - Camioneta ($100.000)", cat: "Estética" },
+    { nombre: "Abrillantado Profundo (2 Pasos) - Auto ($90.000)", cat: "Estética" },
+    { nombre: "Abrillantado Profundo (2 Pasos) - SUV ($100.000)", cat: "Estética" },
+    { nombre: "Abrillantado Profundo (2 Pasos) - Camioneta ($130.000)", cat: "Estética" },
+
+    // 🧽 LIMPIEZA DE TAPIZADOS
+    { nombre: "Limpieza de Tapizados - Auto ($70.000)", cat: "Estética" },
+    { nombre: "Limpieza de Tapizados - SUV ($85.000)", cat: "Estética" },
+    { nombre: "Limpieza de Tapizados - Camioneta ($100.000)", cat: "Estética" },
+
+    // ⚙️ LIMPIEZA DE MOTOR
+    { nombre: "Limpieza de Motor Básica - Auto ($25.000)", cat: "Estética" },
+    { nombre: "Limpieza de Motor Básica - SUV ($30.000)", cat: "Estética" },
+    { nombre: "Limpieza de Motor Básica - Camioneta ($35.000)", cat: "Estética" },
+    { nombre: "Limpieza de Motor Premium - Auto ($45.000)", cat: "Estética" },
+    { nombre: "Limpieza de Motor Premium - SUV ($50.000)", cat: "Estética" },
+    { nombre: "Limpieza de Motor Premium - Camioneta ($60.000)", cat: "Estética" },
+
+    // 💡 PULIDO DE ÓPTICAS
+    { nombre: "Pulido de Ópticas (1 Óptica - $25.000)", cat: "Estética" },
+    { nombre: "Pulido de Ópticas (2 Ópticas - $40.000)", cat: "Estética" },
+
+    // 🏍️ LAVADO DE MOTOS (Estético)
+    { nombre: "Lavado Estético Moto 110cc ($15.000)", cat: "Lavado" },
+    { nombre: "Lavado Estético Moto 150cc ($25.000)", cat: "Lavado" },
+    { nombre: "Lavado Estético Moto 250cc ($30.000)", cat: "Lavado" },
+    { nombre: "Lavado Estético Moto 400cc ($35.000)", cat: "Lavado" },
+    { nombre: "Lavado Estético Moto 600cc ($45.000)", cat: "Lavado" },
+
+    // 🏍️ LAVADO DE MOTOS (Profundo)
+    { nombre: "Lavado Profundo Moto 110cc ($25.000)", cat: "Lavado" },
+    { nombre: "Lavado Profundo Moto 150cc ($50.000)", cat: "Lavado" },
+    { nombre: "Lavado Profundo Moto 250cc ($65.000)", cat: "Lavado" },
+    { nombre: "Lavado Profundo Moto 400cc ($75.000)", cat: "Lavado" },
+    { nombre: "Lavado Profundo Moto 600cc ($85.000)", cat: "Lavado" },
+
+    // 💎 OTROS SERVICIOS Y DETAILING
+    { nombre: "Limpieza y Nutrición de Plásticos Interiores", cat: "Detailing" },
+    { nombre: "Limpieza y Nutrición de Plásticos Exteriores", cat: "Detailing" },
+    { nombre: "Limpieza de Chasis", cat: "Detailing" },
+    { nombre: "Detailing Completo de Moto", cat: "Detailing" }
 ];
 
 // 📅 CONTROL DE DIAS Y HORARIOS OCUPADOS (Agregado manual por los dueños)
-// Formato: "AAAA-MM-DD": ["HH:MM", "HH:MM"]
 const HORARIOS_OCUPADOS = {
-    "2026-07-10": ["14:00", "16:00"],
-    "2026-07-12": ["18:00", "20:00"],
+    "2026-07-10": ["14:00", "16:00", "18:00"],
 };
 
 // Horarios estándar del taller
@@ -51,12 +80,11 @@ const successBox  = document.getElementById("turnoSuccess");
 const inputFecha  = document.getElementById("fechaTurno");
 const horasGrid   = document.getElementById("horasGrid");
 
-// Bloquear fechas pasadas en el calendario nativo (si es que aún existe en el HTML)
 if (inputFecha) {
   inputFecha.min = new Date().toISOString().split("T")[0];
 }
 
-// ── Render chips de servicios (INTACTO, SÚPER CLEAN) ──────────────
+// ── Render chips de servicios (DISEÑO CLEAN ORIGINAL INTACTO) ──────────────
 function renderChips() {
   const grid = document.getElementById("serviciosGrid");
   if (!grid) return;
@@ -83,7 +111,7 @@ function renderChips() {
 // ── Render del selector de horas dinámico ──
 function renderHorarios(fecha) {
   horasGrid.innerHTML = "";
-  estado.horaSeleccionada = null; // Resetear selección previa cada vez que cambia el día
+  estado.horaSeleccionada = null; 
   
   const ocupadosHoy = HORARIOS_OCUPADOS[fecha] || [];
 
@@ -106,7 +134,6 @@ function renderHorarios(fecha) {
   });
 }
 
-// Listener para el input nativo (como respaldo si conviven ambos)
 if (inputFecha) {
   inputFecha.addEventListener("change", (e) => {
     estado.fechaSeleccionada = e.target.value;
@@ -117,7 +144,7 @@ if (inputFecha) {
 
 
 // ── MOTOR DE CALENDARIO CUSTOM INTEGRADO ──
-let fechaActualCal = new Date(); // Mes en pantalla
+let fechaActualCal = new Date(); 
 
 function renderCalendario() {
   const contenedorDias = document.getElementById("calendarDays");
@@ -130,45 +157,38 @@ function renderCalendario() {
   const anio = fechaActualCal.getFullYear();
   const mes  = fechaActualCal.getMonth();
   
-  // Nombres de meses para el título
   const meses = [
     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
   ];
   tituloMesAnio.textContent = `${meses[mes]} ${anio}`;
   
-  // Primer día del mes y total de días
   const primerDiaIndex = new Date(anio, mes, 1).getDay();
   const totalDias      = new Date(anio, mes + 1, 0).getDate();
   
   const hoy = new Date();
   hoy.setHours(0,0,0,0);
   
-  // Crear espacios vacíos para los días del mes anterior
   for (let i = 0; i < primerDiaIndex; i++) {
     const espacio = document.createElement("div");
     espacio.className = "day-chip vacio";
     contenedorDias.appendChild(espacio);
   }
   
-  // Renderizar los números del mes
   for (let dia = 1; dia <= totalDias; dia++) {
     const chipDay = document.createElement("div");
     chipDay.className = "day-chip";
     chipDay.textContent = dia;
     
-    // Formato de fecha de este chip: AAAA-MM-DD
     const mesFormateado = String(mes + 1).padStart(2, '0');
     const diaFormateado = String(dia).padStart(2, '0');
     const stringFechaChip = `${anio}-${mesFormateado}-${diaFormateado}`;
     
     const fechaChipObj = new Date(anio, mes, dia);
     
-    // Controlar si el día ya pasó
     if (fechaChipObj < hoy) {
       chipDay.classList.add("pasado");
     } else {
-      // Si es el día que el usuario ya seleccionó previamente
       if (estado.fechaSeleccionada === stringFechaChip) {
         chipDay.classList.add("seleccionado");
       }
@@ -181,7 +201,6 @@ function renderCalendario() {
         const errFecha = document.getElementById("error_fecha");
         if (errFecha) errFecha.classList.remove("visible");
         
-        // Ejecuta el renderizado de horas dinámico
         renderHorarios(stringFechaChip);
       });
     }
@@ -190,7 +209,6 @@ function renderCalendario() {
   }
 }
 
-// Triggers para las flechas de navegación del mes
 const prevMonthBtn = document.getElementById("prevMonth");
 if (prevMonthBtn) {
   prevMonthBtn.addEventListener("click", () => {
@@ -256,6 +274,7 @@ function validarPaso1() {
   return true;
 }
 
+// ── Validar Paso 2 ──
 function validarPaso2() {
   const campos = ["nombre", "telefono", "mail", "zona", "direccion", "marcaVehiculo", "modeloVehiculo", "anioVehiculo"];
   let valido = true;
@@ -271,7 +290,6 @@ function validarPaso2() {
     if (vacio) valido = false;
   });
 
-  // Validar mail
   const mail = document.getElementById("mail");
   const errorMail = document.getElementById("error_mail");
   if (mail && mail.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value)) {
@@ -280,7 +298,6 @@ function validarPaso2() {
     valido = false;
   }
 
-  // Validar año
   const anio = document.getElementById("anioVehiculo");
   const errorAnio = document.getElementById("error_anioVehiculo");
   if (anio && anio.value.trim()) {
@@ -308,7 +325,6 @@ function validarPaso3() {
   return valido;
 }
 
-// ── Limpiar error al escribir ──────────────
 function limpiarError(id) {
   const el = document.getElementById(id);
   const err = document.getElementById(`error_${id}`);
@@ -392,7 +408,6 @@ document.getElementById("btnAnterior4").addEventListener("click", () => mostrarP
 
 document.getElementById("btnEnviar").addEventListener("click", enviarWhatsApp);
 
-// ── Limpiar errores on input ───────────────
 ["nombre","telefono","mail","zona","direccion","marcaVehiculo","modeloVehiculo","anioVehiculo"].forEach(id => {
   const el = document.getElementById(id);
   if (el) el.addEventListener("input", () => limpiarError(id));
@@ -400,6 +415,6 @@ document.getElementById("btnEnviar").addEventListener("click", enviarWhatsApp);
 
 // ── Init ──────────────────────────────────
 renderChips();
-renderCalendario(); // ← Integrado con éxito acá adentro
+renderCalendario(); 
 actualizarSteps();
 autocompletarServicio();
