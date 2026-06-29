@@ -55,3 +55,29 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowLeft")  irA(indexActual - 1);
   if (e.key === "ArrowRight") irA(indexActual + 1);
 });
+
+// ==========================================
+//   BY NTG — Animación de aparición gradual
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const secciones = document.querySelectorAll(".reveal-scroll");
+  
+    const seccionObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Agrega la clase de CSS para que se desplace y aparezca suavemente
+          entry.target.classList.add("visible");
+          // Deja de observarlo una vez que ya apareció
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.15 // Se activa cuando se ve el 15% de la sección
+    });
+  
+    secciones.forEach(seccion => {
+      seccionObserver.observe(seccion);
+    });
+});

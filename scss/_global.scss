@@ -333,3 +333,12 @@ footer {
   }
   .btn-filtro { flex-shrink: 0; }
 }
+
+.navbar-toggler {
+    border-color: #ffcc00 !important; /* Le da borde amarillo al botón */
+}
+
+.navbar-toggler-icon {
+    /* Este filtro transforma el icono negro original a Blanco / Amarillo brillante */
+    filter: invert(85%) sepia(50%) saturate(2000%) hue-rotate(10deg) brightness(100%);
+}
