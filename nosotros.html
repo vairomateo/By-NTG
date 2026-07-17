@@ -90,62 +90,136 @@
 </section>
 
 <!-- ===== GALERÍA ===== -->
-<section class="py-5 px-3">
-  <div class="container">
+<!-- === SECCIÓN NUESTROS TRABAJOS === -->
+<section class="seccion-trabajos reveal-scroll">
+  <div class="contenedor-galeria">
+    <span class="subtitulo-estetico">Galería</span>
+    <h2>Trabajos Realizados</h2>
 
-    <div class="text-center mb-2">
-      <h2 class="seccion-titulo">TRABAJOS <span>REALIZADOS</span></h2>
+    <!-- Filtros de la Galería -->
+    <div class="filtros-galeria">
+      <button class="btn-filtro active" data-filter="todos">Todos</button>
+      <button class="btn-filtro" data-filter="tapizados">Tapizados</button>
+      <button class="btn-filtro" data-filter="opticas">Ópticas</button>
+      <button class="btn-filtro" data-filter="polarizados">Polarizados</button>
     </div>
-    <div class="separador"></div>
 
-    <div class="galeria-grid">
+    <!-- Grilla de Trabajos (7 Bloques Reales) -->
+    <div class="grilla-trabajos">
 
-      <!-- Cada item: reemplazá src con la foto real -->
-      <!-- FOTO 1 -->
-      <div class="galeria-item" data-label="Polarizado">
-        <img src="imagenes/trabajos/polarizado.jpg" alt="Polarizado" class="galeria-img">
-        <div class="galeria-overlay">
-          <span class="galeria-label">Polarizado</span>
+      <!-- 1. ANTES Y DESPUÉS: Restauración de Ópticas -->
+      <div class="tarjeta-trabajo" data-category="opticas">
+        <div class="bloque-antes-despues">
+          <div class="foto-antes">
+            <img src="imagenes/optica-der-opaca-antes.jpeg" alt="Óptica opaca antes">
+            <span class="tag-foto antes">Antes</span>
+          </div>
+          <div class="foto-despues">
+            <img src="imagenes/ambas-opticas-perfectas-despues.jpeg" alt="Ópticas pulidas después">
+            <span class="tag-foto despues">Después</span>
+          </div>
+        </div>
+        <div class="info-trabajo">
+          <span class="badge-estetica">Estética</span>
+          <h3>Restauración de Ópticas</h3>
+          <p>Eliminación del tono amarillento y veteado, recuperando la transparencia y potencia original del haz de luz.</p>
         </div>
       </div>
 
-      <!-- FOTO 2 -->
-      <div class="galeria-item" data-label="Pulido de Ópticas">
-        <img src="imagenes/trabajos/opticas.jpg" alt="Pulido de ópticas" class="galeria-img">
-        <div class="galeria-overlay">
-          <span class="galeria-label">Pulido de Ópticas</span>
+      <!-- 2. ANTES Y DESPUÉS: Limpieza de Butacas Delanteras -->
+      <div class="tarjeta-trabajo" data-category="tapizados">
+        <div class="bloque-antes-despues">
+          <div class="foto-antes">
+            <img src="imagenes/tapizado-delantero-sucio-antes.jpeg" alt="Tapizado delantero sucio antes">
+            <span class="tag-foto antes">Antes</span>
+          </div>
+          <div class="foto-despues">
+            <img src="imagenes/tapizado-delantero-limpo-depsues.jpeg" alt="Tapizado delantero limpio después">
+            <span class="tag-foto despues">Después</span>
+          </div>
+        </div>
+        <div class="info-trabajo">
+          <span class="badge-lavado">Lavado Premium</span>
+          <h3>Limpieza de Butacas Delanteras</h3>
+          <p>Inyección y extracción para eliminar manchas profundas, aureolas y suciedad acumulada en la tela.</p>
         </div>
       </div>
 
-      <!-- FOTO 3 -->
-      <div class="galeria-item" data-label="Lavado de Tapizado">
-        <img src="imagenes/trabajos/tapizado.jpg" alt="Lavado de tapizado" class="galeria-img">
-        <div class="galeria-overlay">
-          <span class="galeria-label">Lavado de Tapizado</span>
+      <!-- 3. ANTES Y DESPUÉS: Renovación de Plaza Trasera -->
+      <div class="tarjeta-trabajo" data-category="tapizados">
+        <div class="bloque-antes-despues">
+          <div class="foto-antes">
+            <img src="imagenes/tapizado-trasero-sucio-antes.jpeg" alt="Tapizado trasero sucio antes">
+            <span class="tag-foto antes">Antes</span>
+          </div>
+          <div class="foto-despues">
+            <img src="imagenes/tapizado-trasero-limpo-depsues.jpeg" alt="Tapizado trasero limpio después">
+            <span class="tag-foto despues">Después</span>
+          </div>
+        </div>
+        <div class="info-trabajo">
+          <span class="badge-lavado">Lavado Premium</span>
+          <h3>Renovación de Plaza Trasera</h3>
+          <p>Desatascado completo de tapizados y alfombras, eliminando olores y devolviendo el color original.</p>
         </div>
       </div>
 
-      <!-- FOTO 4 -->
-      <div class="galeria-item" data-label="Detailing">
-        <img src="imagenes/trabajos/detailing.jpg" alt="Detailing" class="galeria-img">
-        <div class="galeria-overlay">
-          <span class="galeria-label">Detailing</span>
+      <!-- 4. ANTES Y DESPUÉS: Polarizado Autito -->
+      <div class="tarjeta-trabajo" data-category="polarizados">
+        <div class="bloque-antes-despues">
+          <div class="foto-antes">
+            <img src="imagenes/polarizado-antes-autito.jpeg" alt="Proceso de polarizado">
+            <span class="tag-foto antes">Proceso</span>
+          </div>
+          <div class="foto-despues">
+            <img src="imagenes/polarizado-despues-autito.jpeg" alt="Polarizado terminado">
+            <span class="tag-foto despues">Terminado</span>
+          </div>
+        </div>
+        <div class="info-trabajo">
+          <span class="badge-polarizado">Polarizado</span>
+          <h3>Laminado de Control Solar</h3>
+          <p>Instalación de film premium para privacidad, reducción de calor interior y protección contra rayos UV.</p>
         </div>
       </div>
 
-      <!-- FOTO 5 -->
-      <div class="galeria-item" data-label="Lavado Premium">
-        <img src="imagenes/trabajos/lavado.jpg" alt="Lavado premium" class="galeria-img">
-        <div class="galeria-overlay">
-          <span class="galeria-label">Lavado Premium</span>
+      <!-- 5. RESULTADO FINAL: Detallado de Interior -->
+      <div class="tarjeta-trabajo" data-category="tapizados">
+        <div class="foto-unica">
+          <img src="imagenes/interior-lavado.jpeg" alt="Interior detallado By NTG">
+          <span class="tag-foto resultado">Resultado Final</span>
+        </div>
+        <div class="info-trabajo">
+          <span class="badge-detailing">Detailing</span>
+          <h3>Detallado de Interior Completo</h3>
+          <p>Acondicionamiento de torpedo, plásticos, pedaleras y colocación de protector de cortesía By NTG.</p>
         </div>
       </div>
 
-      <!-- FOTO 6 -->
-      <div class="galeria-item" data-label="Nano Cerámica">
-        <img src="imagenes/trabajos/ceramica.jpg" alt="Nano cerámica" class="galeria-img">
-        <div class="galeria-overlay">
-          <span class="galeria-label">Nano Cerámica</span>
+      <!-- 6. RESULTADO FINAL: Polarizado Hilux -->
+      <div class="tarjeta-trabajo" data-category="polarizados">
+        <div class="foto-unica">
+          <img src="imagenes/polarizado-hilux.jpeg" alt="Toyota Hilux Polarizada">
+          <span class="tag-foto resultado">Resultado Final</span>
+        </div>
+        <div class="info-trabajo">
+          <span class="badge-polarizado">Polarizado</span>
+          <h3>Polarizado Profesional Pick-Up</h3>
+          <p>Terminaciones perfectas sin burbujas en cristales laterales y luneta trasera de Toyota Hilux.</p>
+        </div>
+      </div>
+
+      <!-- 7. RESULTADO FINAL: Lavado de Interior -->
+      <!-- 7. RESULTADO FINAL: Lustrado con Máquina -->
+      <div class="tarjeta-trabajo" data-category="estetica">
+        <div class="foto-unica">
+          <img src="imagenes/detailing.jpeg" alt="Lustrado de carrocería con máquina">
+          <span class="tag-foto resultado">Resultado Final</span>
+        </div>
+        <div class="info-trabajo">
+          <span class="badge-abrillantado">Abrillantado</span>
+          <h3>Lustrado & Corrección de Pintura</h3>
+          <p>Eliminación de microrayones y marcas circulares con máquina rotativa, devolviendo el brillo espejo y la protección a la pintura.</p>
         </div>
       </div>
 
