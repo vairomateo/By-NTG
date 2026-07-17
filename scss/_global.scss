@@ -184,6 +184,7 @@ body {
   margin-bottom: .8rem;
 }
 .badge-polarizado { background: rgba(100,149,237,.15); color: #6495ED; }
+.badge-abrillantado   { background: rgba(46,204,113,.15); color: #2ECC71; }
 .badge-estetica   { background: rgba(147,112,219,.15); color: #9370DB; }
 .badge-detailing  { background: rgba(232,197,71,.15);  color: var(--acento); }
 .badge-lavado     { background: rgba(64,224,208,.15);  color: #40E0D0; }
@@ -327,10 +328,18 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .filtros-scroll {
-    overflow-x: auto;
-    flex-wrap: nowrap !important;
-    padding-bottom: .5rem;
+  overflow-x: auto;
+  flex-wrap: nowrap !important;
+  padding-bottom: .5rem;
+  
+  // Ocultar scrollbar fea
+  scrollbar-width: none;        // Firefox
+  -ms-overflow-style: none;     // IE/Edge
+  
+  &::-webkit-scrollbar {
+    display: none;              // Chrome/Safari
   }
+}
   .btn-filtro { flex-shrink: 0; }
 }
 
@@ -341,4 +350,18 @@ footer {
 .navbar-toggler-icon {
     /* Este filtro transforma el icono negro original a Blanco / Amarillo brillante */
     filter: invert(85%) sepia(50%) saturate(2000%) hue-rotate(10deg) brightness(100%);
+}
+
+.filtros-wrapper {
+  position: relative;
+  
+  // Fade derecho indicando que hay más
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 60px; height: 100%;
+    background: linear-gradient(to right, transparent, var(--negro));
+    pointer-events: none;
+  }
 }

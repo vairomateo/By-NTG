@@ -207,6 +207,11 @@ body {
   color: #6495ED;
 }
 
+.badge-abrillantado {
+  background: rgba(46, 204, 113, 0.15);
+  color: #2ECC71;
+}
+
 .badge-estetica {
   background: rgba(147, 112, 219, 0.15);
   color: #9370DB;
@@ -389,6 +394,11 @@ footer {
     overflow-x: auto;
     flex-wrap: nowrap !important;
     padding-bottom: 0.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .filtros-scroll::-webkit-scrollbar {
+    display: none;
   }
   .btn-filtro {
     flex-shrink: 0;
@@ -401,6 +411,20 @@ footer {
 .navbar-toggler-icon {
   /* Este filtro transforma el icono negro original a Blanco / Amarillo brillante */
   filter: invert(85%) sepia(50%) saturate(2000%) hue-rotate(10deg) brightness(100%);
+}
+
+.filtros-wrapper {
+  position: relative;
+}
+.filtros-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, var(--negro));
+  pointer-events: none;
 }
 
 .navbar {
