@@ -56,7 +56,7 @@ const SERVICIOS = [
 
 // 📅 CONTROL DE DIAS Y HORARIOS OCUPADOS (Agregado manual por los dueños)
 const HORARIOS_OCUPADOS = {
-    "2026-07-10": ["14:00", "16:00", "18:00"],
+    "2026-07-25": ["14:00", "16:00", "18:00"],
 };
 
 // Horarios estándar del taller
