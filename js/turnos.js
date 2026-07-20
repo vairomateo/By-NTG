@@ -381,7 +381,7 @@ function enviarWhatsApp() {
 🚗 *Vehículo*
 • ${marca} ${modelo} (${anio})`;
 
-  const numero = "1135706071"; 
+  const numero = "1135706315"; 
   const url    = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
   window.open(url, "_blank");
 
